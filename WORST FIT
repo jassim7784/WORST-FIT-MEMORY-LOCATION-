@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+void main()
+{
+    int a[50],b[50],c[50],d[50],m=4,n=4,temp;
+    int i,j;
+    
+    printf("Enter the memory spaces\n");
+    for(i=0;i<m;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    printf("enter the process\n");
+    for(j=0;j<n;j++)
+    {
+        scanf("%d",&b[j]);
+        
+    }
+    
+    for(i=0;i<m;i++)
+    {
+        for(j=i+1;j<m-i-1;j++)
+        {
+            if(a[i]<a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    
+    for(j=0;j<n;j++)
+    {
+        for(i=0;i<m;i++)
+        {
+            if(a[i]>=b[j])
+            {
+            c[i]=a[i]-b[j];
+            d[i]=j;
+          
+            printf("\n %d is stored in %d remaining is %d \n",b[j],a[i],c[i]);
+              a[i]=c[i];
+            break;
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+            
+            else 
+              {
+                  if(a[i]<=b[j])
+                  {
+                      d[i]=0;
+                      printf("\n %d is not allocated\n",b[j]);
+                  }
+              }
+        }
+    }
+}
